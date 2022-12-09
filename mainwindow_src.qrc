@@ -1,6 +1,0 @@
-<RCC>
-    <qresource prefix="/">
-        <file>Menu/content/Screen01.ui.qml</file>
-        <file>Menu/menu_background.jpg</file>
-    </qresource>
-</RCC>
