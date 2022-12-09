@@ -1,0 +1,35 @@
+<RCC>
+    <qresource prefix="/maps">
+        <file>lvl_1</file>
+    </qresource>
+    <qresource prefix="/maps_backgrounds">
+        <file>background.png</file>
+        <file>menu_background.jpg</file>
+    </qresource>
+    <qresource prefix="/tiles">
+        <file>castle.png</file>
+        <file>flower.png</file>
+        <file>sign.png</file>
+        <file>stairblock.png</file>
+        <file>wallf2.png</file>
+        <file>walli.png</file>
+        <file>brick.png</file>
+        <file>coin.png</file>
+        <file>ground.png</file>
+        <file>questbox.png</file>
+        <file>questbox_1.png</file>
+        <file>hcastle.png</file>
+    </qresource>
+    <qresource prefix="/characters">
+        <file>mario.png</file>
+        <file>goomba.png</file>
+        <file>piranha.png</file>
+        <file>spiny.png</file>
+        <file>turtle.png</file>
+    </qresource>
+    <qresource prefix="/other">
+        <file>clock.png</file>
+        <file>health_heart.png</file>
+        <file>win_mario.gif</file>
+    </qresource>
+</RCC>
