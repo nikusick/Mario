@@ -178,13 +178,5 @@ DISTFILES += \
     Box2D/src/CMakeLists.txt \
     libBox2D.a
 
-unix|win32: LIBS += -L$$PWD/../build-Box2D-Desktop_Qt_6_4_1_MinGW_64_bit-Release/release/ -lBox2D
-
-INCLUDEPATH += $$PWD/../build-Box2D-Desktop_Qt_6_4_1_MinGW_64_bit-Release/release
-DEPENDPATH += $$PWD/../build-Box2D-Desktop_Qt_6_4_1_MinGW_64_bit-Release/release
-
-win32:!win32-g++: PRE_TARGETDEPS += $$PWD/../build-Box2D-Desktop_Qt_6_4_1_MinGW_64_bit-Release/release/Box2D.lib
-else:unix|win32-g++: PRE_TARGETDEPS += $$PWD/../build-Box2D-Desktop_Qt_6_4_1_MinGW_64_bit-Release/release/libBox2D.a
-
 SUBDIRS += \
     Box2D/Box2D.pro
