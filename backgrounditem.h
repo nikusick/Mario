@@ -6,7 +6,7 @@
 
 #include "mario.h"
 
-#define TILES_PATH ":/tiles/"
+#define TILES_PATH ":/tiles/img/"
 
 
 class BackgroundItem: public QObject, public QGraphicsPixmapItem

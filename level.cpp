@@ -27,7 +27,7 @@ int Level::getTime()
 
 void Level::setMap(int height)
 {
-    QFile file(QString::fromStdString(":/maps/lvl_" + std::to_string(_lvl)));
+    QFile file(QString::fromStdString(":/maps/maps/lvl_" + std::to_string(_lvl)));
     file.open(QIODevice::ReadOnly|QIODevice::Text);
 
     int blockSize = std::stoi(file.readLine().data());
@@ -99,7 +99,7 @@ void Level::setMap(int height)
 
 void Level::setMenu()
 {
-    auto clock = new QGraphicsPixmapItem(QPixmap(":/other/clock.png"));
+    auto clock = new QGraphicsPixmapItem(QPixmap(":/other/img/clock.png"));
     clock->setPos(0, 0);
     _menu->addToGroup(clock);
     _gameTimer = new Timer();

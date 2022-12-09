@@ -36,7 +36,7 @@ protected slots:
 class Turtle: public Enemy
 {
 public:
-    Turtle(qreal x, qreal y, qreal x1, b2World* world): Enemy(x, y, x1, 45, ":/characters/turtle.png", world){
+    Turtle(qreal x, qreal y, qreal x1, b2World* world): Enemy(x, y, x1, 45, ":/characters/img/turtle.png", world){
     }
 private:
     virtual void changePixmap() override {

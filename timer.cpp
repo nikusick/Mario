@@ -10,7 +10,7 @@ Timer::Timer(QGraphicsItem *parent): QGraphicsTextItem(parent){
     timeCount = 400;
 
     // draw the text
-    setPlainText(QString("") + QString::number(timeCount));
+    setPlainText(QString::number(timeCount));
     setDefaultTextColor(Qt::black);
     setFont(QFont("Sitka text",30));
     startTimer(1000);
@@ -24,7 +24,7 @@ void Timer::decrease(){
 
     if(timeCount != 0){
         timeCount--;
-        setPlainText(QString("") + QString::number(timeCount));
+        setPlainText(QString::number(timeCount));
     }
 
 }

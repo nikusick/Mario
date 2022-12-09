@@ -7,7 +7,7 @@
 #include "health.h"
 #include "score.h"
 
-#define MARIO_IMG_PATH ":/characters/mario.png"
+#define MARIO_IMG_PATH ":/characters/img/mario.png"
 #define MARIO_VELOCITY 2
 
 

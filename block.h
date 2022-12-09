@@ -5,7 +5,7 @@
 #include <QGraphicsPixmapItem>
 #include <QTimer>
 
-#define TILES_PATH ":/tiles/"
+#define TILES_PATH ":/tiles/img/"
 
 
 class Block: public QObject, public QGraphicsPixmapItem

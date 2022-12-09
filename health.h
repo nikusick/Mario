@@ -19,7 +19,7 @@ public:
         return _health;
     }
 private:
-    QPixmap _img = QPixmap(":/other/health_heart.png");
+    QPixmap _img = QPixmap(":/other/img/health_heart.png");
     int _health = 5;
 };
 

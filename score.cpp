@@ -8,11 +8,9 @@ Score::Score(QGraphicsItem *parent): QGraphicsTextItem(parent){
     scoreCount = 0;
 
     // draw the text
-    int id = QFontDatabase::addApplicationFont(":font/CoinCount2.ttf");
-    QFontDatabase::applicationFontFamilies(id);
-    setPlainText(QString("") + QString::number(scoreCount));
+    setPlainText(QString("Score: ") + QString::number(scoreCount));
     setDefaultTextColor(Qt::black);
-    setFont(QFont("CoinCount2",30));
+    setFont(QFont("Sitka Text",30));
 
 
 }

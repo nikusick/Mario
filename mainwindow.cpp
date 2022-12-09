@@ -9,6 +9,7 @@ MainWindow::MainWindow(QWidget *parent)
     _ui->setupUi(this);
 
     setWindowTitle(tr("Super Mario"));
+    setFixedSize(this->width(), this->height());
     setMenu();
     setView();
     setSettings();
@@ -37,7 +38,7 @@ void MainWindow::setView()
 void MainWindow::setMenu()
 {
     _ui->stackedWidget->setAutoFillBackground(true);
-    QPixmap pixmap=QPixmap(":/maps_backgrounds/menu_background.jpg").scaled(_ui->stackedWidget->size());
+    QPixmap pixmap=QPixmap(":/maps_backgrounds/img/menu_background.jpg").scaled(_ui->stackedWidget->size());
     QPalette palette(_ui->stackedWidget->palette());
     palette.setBrush(_ui->stackedWidget->backgroundRole(),QBrush(pixmap.scaled(_ui->stackedWidget->size(),
                                                                                Qt::IgnoreAspectRatio,Qt::SmoothTransformation)));
