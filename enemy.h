@@ -14,6 +14,7 @@ protected:
     int _curFrame = 0;
     qreal _start, _stop;
     QTimer* _goTimer;
+    QTimer* _colidingTimer;
     bool goLeft = false;
 
     b2Body* _body;
@@ -63,7 +64,6 @@ private:
             setPixmap(_curPixmap.copy(_curFrame, 0, 45, 75).transformed(
                           QTransform().scale(-1,1).translate(_curPixmap.copy(_curFrame, 0, 45, 75).width(), 0)));
         }
-        checkCollidings();
     }
 };
 

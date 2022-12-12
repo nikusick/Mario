@@ -14,6 +14,7 @@
 #include "timer.h"
 #include "enemy.h"
 #include "backgrounditem.h"
+#include "mediaplayer.h"
 
 #define MARIO_HEIGHT 100
 
@@ -21,7 +22,7 @@ class Level: public QGraphicsScene
 {
     Q_OBJECT
 public:
-    Level(qreal height, int lvl, b2World* world);
+    Level(qreal height, int lvl, b2World* world, MediaPlayer* player);
     ~Level();
 
     Mario* _mario;
@@ -32,6 +33,7 @@ public:
     friend class Mario;
 private:
     int _lvl;
+    MediaPlayer* _player;
 
     b2World* _world;
 

@@ -14,6 +14,8 @@ MainWindow::MainWindow(QWidget *parent)
     setView();
     setSettings();
 
+    _player = new MediaPlayer;
+
     _world = new b2World(b2Vec2(0.00f, 10.00f));
 
     _timer = new QTimer;
@@ -26,6 +28,7 @@ MainWindow::~MainWindow()
     if (inGame) delete _level;
     delete _timer;
     delete _world;
+    delete _player;
 }
 
 void MainWindow::setView()
@@ -44,11 +47,6 @@ void MainWindow::setMenu()
                                                                                Qt::IgnoreAspectRatio,Qt::SmoothTransformation)));
     _ui->stackedWidget->setPalette(palette);
     _ui->stackedWidget->setCurrentWidget(_ui->menu);
-}
-
-void MainWindow::setLosePage()
-{
-
 }
 
 void MainWindow::setWinPage()
@@ -108,7 +106,8 @@ void MainWindow::on_lvl_1_clicked()
     grabKeyboard();
     inGame = true;
 
-    _level = new Level(_ui->graphicsView->height(), 1, _world);
+    _player->startGame();
+    _level = new Level(_ui->graphicsView->height(), 1, _world, _player);
     _ui->graphicsView->setScene(_level);
     _ui->graphicsView->centerOn(_level->_mario);
     _timer->start();
@@ -154,5 +153,11 @@ void MainWindow::on_to_menu_2_clicked()
 void MainWindow::on_to_menu_1_clicked()
 {
     _ui->stackedWidget->setCurrentWidget(_ui->menu);
+}
+
+
+void MainWindow::on_checkBox_stateChanged(int arg1)
+{
+    _player->setMute(!arg1);
 }
 

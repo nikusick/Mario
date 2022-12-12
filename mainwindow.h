@@ -6,6 +6,7 @@
 #include <QKeyEvent>
 #include <QMovie>
 #include "level.h"
+#include "mediaplayer.h"
 #include <Box2D/box2d.h>
 
 QT_BEGIN_NAMESPACE
@@ -25,6 +26,7 @@ private:
 
     Level* _level;
     QTimer* _timer;
+    MediaPlayer* _player;
     b2World* _world;
 
     bool inGame = false;
@@ -58,5 +60,6 @@ private slots:
     void on_save_b_clicked();
     void on_to_menu_2_clicked();
     void on_to_menu_1_clicked();
+    void on_checkBox_stateChanged(int arg1);
 };
 #endif // MAINWINDOW_H

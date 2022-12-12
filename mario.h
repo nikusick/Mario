@@ -6,6 +6,7 @@
 
 #include "health.h"
 #include "score.h"
+#include "mediaplayer.h"
 
 #define MARIO_IMG_PATH ":/characters/img/mario.png"
 #define MARIO_VELOCITY 2
@@ -15,7 +16,7 @@ class Mario : public QObject, public QGraphicsPixmapItem
 {
     Q_OBJECT
 public:
-    Mario(qreal x, qreal y, int height, b2World* world);
+    Mario(qreal x, qreal y, int height, b2World* world, MediaPlayer* player);
     ~Mario();
 
     void jump();
@@ -42,13 +43,17 @@ private:
     Condition* _condition;
     Health* _health;
     Score* _score;
+    MediaPlayer* _player;
 
     void setSite(Condition::Site);
     void setPosition(Condition::Position);
+
     b2Body* _body;
     b2World* _world;
+
     QPixmap _curPixmap;
     int _curFrame;
+
     QTimer* _goTimer;
     QTimer* _collidingTimer;
     QTimer* _damageTimer;

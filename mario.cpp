@@ -11,7 +11,7 @@ float toB2(float value) {
     return value / 100;
 }
 
-Mario::Mario(qreal x, qreal y, int height, b2World *world): _world(world)
+Mario::Mario(qreal x, qreal y, int height, b2World *world, MediaPlayer* player): _player(player), _world(world)
 {
     _curPixmap = QPixmap(MARIO_IMG_PATH);
     _curFrame = 0;
@@ -114,7 +114,10 @@ void Mario::jump()
 {
     setPosition(Condition::Position::stay);
     b2Vec2 vel = _body->GetLinearVelocity();
-    if (vel.y == 0) vel.y = -8;
+    if (vel.y == 0) {
+        vel.y = -8;
+        _player->jump();
+    }
     _body->SetLinearVelocity( vel );
 }
 

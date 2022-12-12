@@ -30,4 +30,11 @@
         <file>img/clock.png</file>
         <file>img/health_heart.png</file>
     </qresource>
+    <qresource prefix="/audio">
+        <file>audio/audio_coin.wav</file>
+        <file>audio/audio_death.wav</file>
+        <file>audio/audio_jump.wav</file>
+        <file>audio/intro.mp3</file>
+        <file>audio/main_theme.mp3</file>
+    </qresource>
 </RCC>

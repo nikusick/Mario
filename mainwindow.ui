@@ -54,7 +54,7 @@ background-color: black;
 }</string>
     </property>
     <property name="currentIndex">
-     <number>3</number>
+     <number>2</number>
     </property>
     <widget class="QWidget" name="game">
      <widget class="QGraphicsView" name="graphicsView">
@@ -157,6 +157,15 @@ background-color: black;
       </property>
       <property name="text">
        <string>Music</string>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>30</width>
+        <height>30</height>
+       </size>
+      </property>
+      <property name="checked">
+       <bool>true</bool>
       </property>
      </widget>
      <widget class="QWidget" name="formLayoutWidget">

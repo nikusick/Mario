@@ -1,6 +1,6 @@
 #include "level.h"
 
-Level::Level(qreal height, int lvl, b2World* world): _lvl(lvl), _world(world)
+Level::Level(qreal height, int lvl, b2World* world, MediaPlayer* player): _lvl(lvl), _player(player), _world(world)
 {
     setMap(height);
     setMenu();
@@ -83,7 +83,7 @@ void Level::setMap(int height)
                 addItem(new Block(j * blockSize, i * blockSize, "ground.png", _world));
                 break;
             case 'm':
-                _mario = new Mario(j * blockSize, i * blockSize, MARIO_HEIGHT, _world);
+                _mario = new Mario(j * blockSize, i * blockSize, MARIO_HEIGHT, _world, _player);
                 addItem(_mario);
                 break;
             case 't':

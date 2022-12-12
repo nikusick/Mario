@@ -20,11 +20,16 @@ Enemy::Enemy(qreal x, qreal y, qreal x1, qreal width, const std::string& img, b2
     _goTimer = new QTimer;
     connect(_goTimer, SIGNAL(timeout()), this, SLOT(changePixmap()));
     _goTimer->start(100);
+
+    _colidingTimer = new QTimer;
+    connect(_colidingTimer, SIGNAL(timeout()), this, SLOT(checkCollidings()));
+    _colidingTimer->start();
 }
 
 Enemy::~Enemy()
 {
     delete _goTimer;
+    delete _colidingTimer;
     _body->GetWorld()->DestroyBody(_body);
 }
 
@@ -74,7 +79,8 @@ void Enemy::checkCollidings()
     foreach(QGraphicsItem *item, collidingItems()) {
         if (isTouchingMario(item)) {
             if (!damageMario(item)) {
-                setVisible(false);
+                delete this;
+                return;
             }
         }
     }
