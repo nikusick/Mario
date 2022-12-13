@@ -9,6 +9,7 @@ MainWindow::MainWindow(QWidget *parent)
     _ui->setupUi(this);
 
     setWindowTitle(tr("Super Mario"));
+    setBackgroundRole(QPalette::Dark);
     setFixedSize(this->width(), this->height());
     setMenu();
     setView();
@@ -72,6 +73,7 @@ void MainWindow::moveCamera()
         setWinPage();
         _ui->stackedWidget->setCurrentWidget(_ui->win_page);
         delete _level;
+        _player->endGame();
         releaseKeyboard();
     }
     else if (_level->getTime() == 0 || _level->_mario->getHealth()->getHealth() == 0) {
@@ -79,6 +81,7 @@ void MainWindow::moveCamera()
         _timer->stop();
         _ui->stackedWidget->setCurrentWidget(_ui->lose_page);
         delete _level;
+        _player->endGame();
         releaseKeyboard();
     }
 }
@@ -86,9 +89,9 @@ void MainWindow::moveCamera()
 void MainWindow::keyPressEvent(QKeyEvent *event)
 {
     if (inGame) {
-        if (QKeySequence(event->key()) == _controls.at("up")) _level->_mario->jump();
-        if (QKeySequence(event->key()) == _controls.at("left")) _level->_mario->goLeft();
-        if (QKeySequence(event->key()) == _controls.at("right")) _level->_mario->goRight();
+        if (event->key() == _controls.at("up")) _level->_mario->jump();
+        if (event->key() == _controls.at("left")) _level->_mario->goLeft();
+        if (event->key() == _controls.at("right")) _level->_mario->goRight();
     }
 }
 
@@ -116,7 +119,7 @@ void MainWindow::on_lvl_1_clicked()
 
 void MainWindow::on_keyUp_keySequenceChanged(const QKeySequence &keySequence)
 {
-    _controls.at("up") = keySequence;
+    _controls.at("up") = keySequence[0].key();
 }
 
 
@@ -134,13 +137,13 @@ void MainWindow::on_save_b_clicked()
 
 void MainWindow::on_keyLeft_keySequenceChanged(const QKeySequence &keySequence)
 {
-    _controls.at("left") = keySequence;
+    _controls.at("left") = keySequence[0].key();
 }
 
 
 void MainWindow::on_keyRight_keySequenceChanged(const QKeySequence &keySequence)
 {
-    _controls.at("right") = keySequence;
+    _controls.at("right") = keySequence[0].key();
 }
 
 

@@ -18,6 +18,7 @@
         <file>img/brick.png</file>
         <file>img/ground.png</file>
         <file>img/sign.png</file>
+        <file>img/warp.png</file>
     </qresource>
     <qresource prefix="/characters">
         <file>img/goomba.png</file>

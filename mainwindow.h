@@ -31,7 +31,7 @@ private:
 
     bool inGame = false;
 
-    std::map<std::string, QKeySequence> _controls = {
+    std::map<std::string, Qt::Key> _controls = {
         {"up", Qt::Key_Up},
         {"left", Qt::Key_Left},
         {"right", Qt::Key_Right}

@@ -2,6 +2,7 @@
 #define MEDIAPLAYER_H
 
 #include <QMediaPlayer>
+#include <QMediaMetaData>
 #include <QAudioOutput>
 #include <QSoundEffect>
 
@@ -9,37 +10,23 @@ class MediaPlayer
 {
 public:
     MediaPlayer() {
-        _jump = new QSoundEffect;
-        _coin = new QSoundEffect;
-        _death = new QSoundEffect;
-
         _player = new QMediaPlayer;
+        _effects = new QMediaPlayer;
         _audioOutput = new QAudioOutput;
-
-        _jump->setSource(QUrl("qrc:/audio/audio/audio_jump.wav"));
-        _coin->setSource(QUrl("qrc:/audio/audio/audio_coin.wav"));
-        _death->setSource(QUrl("qrc:/audio/audio/audio_death.wav"));
-
-        _jump->setLoopCount(0);
-        _coin->setLoopCount(0);
-        _death->setLoopCount(0);
-
-        _jump->setVolume(.25f);
-        _coin->setVolume(.25f);
-        _death->setVolume(.25f);
+        _audioEffectsOutput = new QAudioOutput;
 
         _player->setAudioOutput(_audioOutput);
+        _effects->setAudioOutput(_audioEffectsOutput);
         _player->setSource(QUrl("qrc:/audio/audio/intro.mp3"));
         _audioOutput->setVolume(50);
         _player->play();
     };
 
     ~MediaPlayer() {
-        delete _jump;
-        delete _coin;
-        delete _death;
+        delete _effects;
         delete _player;
         delete _audioOutput;
+        delete _audioEffectsOutput;
     }
     void startGame() {
         if (!isMuted) {
@@ -57,37 +44,33 @@ public:
     }
     void jump() {
         if (!isMuted) {
-            _jump->play();
+            _effects->setSource(QUrl("qrc:/audio/audio/audio_jump.wav"));
+            _effects->play();
+
         }
     }
     void coin() {
         if (!isMuted) {
-            _coin->play();
-        }
-    }
-    void death() {
-        if (!isMuted) {
-            _death->play();
+            _effects->setSource(QUrl("qrc:/audio/audio/audio_coin.wav"));
+            _effects->play();
         }
     }
     void setMute(bool i) {
         isMuted = i;
         if (!isMuted) {
-            _player->stop();
+            _player->play();
         }
         else {
-            _player->play();
+            _player->pause();
         }
     }
 private:
     bool isMuted = false;
 
-    QSoundEffect* _jump;
-    QSoundEffect* _coin;
-    QSoundEffect* _death;
-
     QMediaPlayer* _player;
+    QMediaPlayer* _effects;
     QAudioOutput* _audioOutput;
+    QAudioOutput* _audioEffectsOutput;
 };
 
 #endif // MEDIAPLAYER_H

@@ -54,7 +54,6 @@ SOURCES += \
     Box2D/src/dynamics/b2_world.cpp \
     Box2D/src/dynamics/b2_world_callbacks.cpp \
     Box2D/src/rope/b2_rope.cpp \
-    block.cpp \
     enemy.cpp \
     level.cpp \
     main.cpp \

@@ -70,6 +70,9 @@ void Level::setMap(int height)
             case 's':
                 addItem(new BackgroundItem(j * blockSize, i * blockSize, "sign.png"));
                 break;
+            case 'S':
+                addItem(new Spiny(j * blockSize, i * blockSize, (j + 2) * blockSize, _world));
+                break;
             case '6':
                 addItem(new Block(j * blockSize, i * blockSize, "stairblock.png", _world));
                 break;
@@ -90,7 +93,16 @@ void Level::setMap(int height)
                 addItem(new Turtle(j * blockSize, i * blockSize, (j + 2) * blockSize, _world));
                 break;
             case 'q':
-                addItem(new Block(j * blockSize, i * blockSize, "questbox_1.png", _world));
+                addItem(new QuestBox(j * blockSize, i * blockSize, _world));
+                break;
+            case 'g':
+                addItem(new Goomba(j * blockSize, i * blockSize, (j + 2) * blockSize, _world));
+                break;
+            case 'p':
+                addItem(new Piranha(j * blockSize, i * blockSize, (j + 2) * blockSize, _world));
+                break;
+            case 'w':
+                addItem(new Block(j * blockSize, i * blockSize, "warp.png", _world));
                 break;
             }
         }

@@ -10,8 +10,8 @@ public:
     Health() {
         setPixmap(_img);
     }
-    void decreaseHealth() {
-        _health--;
+    void decreaseHealth(int count) {
+        _health -= count;
         setPixmap(_img.copy(0, 0, _health * 69, _img.height()));
     }
     int getHealth() {

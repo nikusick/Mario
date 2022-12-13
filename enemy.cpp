@@ -5,7 +5,7 @@ Enemy::Enemy(qreal x, qreal y, qreal x1, qreal width, const std::string& img, b2
 {
     //Set pixmap
     _curPixmap = QPixmap(QString::fromStdString(img));
-    setPixmap(_curPixmap.copy(_curFrame, 0, width, 66));
+    setPixmap(_curPixmap.copy(_curFrame, 0, width, _curPixmap.height()));
     setScale(1.5);
 
     //Set position
@@ -51,7 +51,7 @@ void Enemy::setBody(qreal x, qreal y, b2World *world)
 
     b2CircleShape cShape;
     cShape.m_radius = 0.1;
-    cShape.m_p.Set((float)pixmap().width() / 200, ((float)pixmap().height() * scale() - 20) / 100);
+    cShape.m_p.Set((float)boundingRect().width() / 200, ((float)boundingRect().height() + 20) / 100);
 
 
     b2FixtureDef fixtureDef;

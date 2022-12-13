@@ -67,6 +67,7 @@ private:
     bool isTouching(QGraphicsItem *item);
     bool isTouchingPlatform();
     bool isTouchingCoin(QGraphicsItem *item);
+    bool isTouchingQuestbox(QGraphicsItem* item);
 
     //Collisions with enemies
     bool isTouchingEnemy(QGraphicsItem *item);
