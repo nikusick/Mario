@@ -50,7 +50,7 @@ Mario::Mario(qreal x, qreal y, int height, b2World *world, MediaPlayer* player):
     _goTimer = new QTimer;
     _collidingTimer = new QTimer;
     _damageTimer = new QTimer;
-    connect(_goTimer, SIGNAL(timeout()), this, SLOT(changePixmap()));
+    connect(_goTimer, SIGNAL(timeout()), this, SLOT(move()));
     connect(_collidingTimer, SIGNAL(timeout()), this, SLOT(checkCollisions()));
     connect(_damageTimer, SIGNAL(timeout()), this, SLOT(blinking()));
 
@@ -126,11 +126,6 @@ void Mario::goLeft()
     setSite(Condition::Site::left);
     setPosition(Condition::Position::run);
     _goTimer->start(25);
-    if (pos().x() > 0) {
-        b2Vec2 vel = _body->GetLinearVelocity();
-        vel.x = -MARIO_VELOCITY;
-        _body->SetLinearVelocity( vel );
-    }
 }
 
 void Mario::goRight()
@@ -138,9 +133,15 @@ void Mario::goRight()
     setSite(Condition::Site::right);
     setPosition(Condition::Position::run);
     _goTimer->start(25);
+}
+
+void Mario::move()
+{
     b2Vec2 vel = _body->GetLinearVelocity();
-    vel.x = MARIO_VELOCITY;
+    if (_condition->site == Condition::Site::left) {if (pos().x() > 0) vel.x = -MARIO_VELOCITY;}
+    else vel.x = MARIO_VELOCITY;
     _body->SetLinearVelocity( vel );
+    changePixmap();
 }
 
 void Mario::stay()

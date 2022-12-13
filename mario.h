@@ -25,6 +25,8 @@ public:
     void stay();
     void blink();
 
+    void changePixmap();
+
     Health* getHealth() const;
     Score* getScore() const;
 
@@ -71,7 +73,7 @@ private:
     bool killEnemy(QGraphicsItem *item);
 
 private slots:
-    void changePixmap();
+    void move();
     void blinking();
 
     void checkCollisions();

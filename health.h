@@ -3,7 +3,6 @@
 
 #include <QGraphicsItem>
 
-
 class Health : public QObject, public QGraphicsPixmapItem
 {
     Q_OBJECT;
