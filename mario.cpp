@@ -117,7 +117,7 @@ void Mario::jump()
     b2Vec2 vel = _body->GetLinearVelocity();
     if (vel.y == 0) {
         _player->jump();
-        vel.y = -8;
+        vel.y = -7.5;
     }
     _body->SetLinearVelocity( vel );
 }

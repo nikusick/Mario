@@ -67,7 +67,7 @@ void MainWindow::moveCamera()
 {
     _ui->graphicsView->centerOn(_level->_mario);
     _level->moveMenu(_ui->graphicsView->mapToScene(0, 0));
-    if (_level->_mario->pos().x() >= 4777) {
+    if (_ui->graphicsView->mapFromScene(_level->_mario->pos()).x() >= _ui->graphicsView->width() - 25) {
         inGame = false;
         _timer->stop();
         setWinPage();

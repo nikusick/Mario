@@ -71,9 +71,9 @@ void Level::setMap(int height)
                 addItem(new BackgroundItem(j * blockSize, i * blockSize, "sign.png"));
                 break;
             case 'S':
-                addItem(new Spiny(j * blockSize, i * blockSize, (j + 2) * blockSize, _world));
+                addItem(new Spiny(j * blockSize, i * blockSize, (j + 8) * blockSize, _world));
                 break;
-            case '6':
+            case '4':
                 addItem(new Block(j * blockSize, i * blockSize, "stairblock.png", _world));
                 break;
             case '7':
@@ -90,16 +90,16 @@ void Level::setMap(int height)
                 addItem(_mario);
                 break;
             case 't':
-                addItem(new Turtle(j * blockSize, i * blockSize, (j + 2) * blockSize, _world));
+                addItem(new Turtle(j * blockSize, i * blockSize, (j + 3) * blockSize, _world));
                 break;
             case 'q':
                 addItem(new QuestBox(j * blockSize, i * blockSize, _world));
                 break;
             case 'g':
-                addItem(new Goomba(j * blockSize, i * blockSize, (j + 2) * blockSize, _world));
+                addItem(new Goomba(j * blockSize, i * blockSize, (j + 4) * blockSize, _world));
                 break;
             case 'p':
-                addItem(new Piranha(j * blockSize, i * blockSize, (j + 2) * blockSize, _world));
+                addItem(new Piranha(j * blockSize, i * blockSize, 0, _world));
                 break;
             case 'w':
                 addItem(new Block(j * blockSize, i * blockSize, "warp.png", _world));
