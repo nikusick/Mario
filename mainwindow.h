@@ -61,5 +61,6 @@ private slots:
     void on_to_menu_2_clicked();
     void on_to_menu_1_clicked();
     void on_checkBox_stateChanged(int arg1);
+    void on_lvl_2_clicked();
 };
 #endif // MAINWINDOW_H

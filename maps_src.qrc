@@ -1,6 +1,7 @@
 <RCC>
     <qresource prefix="/maps">
         <file>maps/lvl_1</file>
+        <file>maps/lvl_2</file>
     </qresource>
     <qresource prefix="/maps_backgrounds">
         <file>img/background.png</file>
@@ -19,6 +20,10 @@
         <file>img/ground.png</file>
         <file>img/sign.png</file>
         <file>img/warp.png</file>
+        <file>img/winter_ball.png</file>
+        <file>img/winter_ground.png</file>
+        <file>img/winter_ground_1.png</file>
+        <file>img/winter_ground_2.png</file>
     </qresource>
     <qresource prefix="/characters">
         <file>img/goomba.png</file>
@@ -30,6 +35,8 @@
     <qresource prefix="/other">
         <file>img/clock.png</file>
         <file>img/health_heart.png</file>
+        <file>img/sound_off.png</file>
+        <file>img/sound_on.png</file>
     </qresource>
     <qresource prefix="/audio">
         <file>audio/audio_coin.wav</file>

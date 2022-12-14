@@ -76,7 +76,7 @@ void MainWindow::moveCamera()
         _player->endGame();
         releaseKeyboard();
     }
-    else if (_level->getTime() == 0 || _level->_mario->getHealth()->getHealth() == 0) {
+    else if (_level->getTime() == 0 || _level->_mario->getHealth()->getHealth() == 0 || _level->_mario->pos().y() >= _ui->graphicsView->height()) {
         inGame = false;
         _timer->stop();
         _ui->stackedWidget->setCurrentWidget(_ui->lose_page);
@@ -162,5 +162,20 @@ void MainWindow::on_to_menu_1_clicked()
 void MainWindow::on_checkBox_stateChanged(int arg1)
 {
     _player->setMute(!arg1);
+}
+
+
+void MainWindow::on_lvl_2_clicked()
+{
+    _ui->stackedWidget->setCurrentWidget(_ui->game);
+
+    grabKeyboard();
+    inGame = true;
+
+    _player->startGame();
+    _level = new Level(_ui->graphicsView->height(), 2, _world, _player);
+    _ui->graphicsView->setScene(_level);
+    _ui->graphicsView->centerOn(_level->_mario);
+    _timer->start();
 }
 

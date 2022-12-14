@@ -50,6 +50,9 @@ void Level::setMap(int height)
         line = file.readLine();
         for (int j = 0; j < w_block_count; ++j) {
             switch(line[j]) {
+            case '1':
+                addItem(new Block(j * blockSize, i * blockSize, "winter_ground.png", _world));
+                break;
             case '2':
                 addItem(new Block(j * blockSize, i * blockSize, "brick.png", _world));
                 break;
@@ -61,6 +64,12 @@ void Level::setMap(int height)
                 addItem(item);
                 break;
             }
+            case '5':
+                addItem(new Block(j * blockSize, i * blockSize, "winter_ball.png", _world));
+                break;
+            case '6':
+                addItem(new Block(j * blockSize, i * blockSize, "winter_ground_1.png", _world));
+                break;
             case 'c':
                 addItem(new Coin(j, i, blockSize, "coin.png"));
                 break;
