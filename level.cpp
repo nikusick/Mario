@@ -55,20 +55,20 @@ void Level::setMap(int height)
                 break;
             case '3':
             {
-                addItem(new BackgroundItem(j * blockSize, i * blockSize, "castle.png"));
-                auto item = new BackgroundItem(j * blockSize + 157, i * blockSize, "hcastle.png");
+                addItem(new BackgroundItem(j, i, blockSize, "castle.png"));
+                auto item = new BackgroundItem(j + (float)157 / blockSize, i, blockSize, "hcastle.png");
                 item->setZValue(2000);
                 addItem(item);
                 break;
             }
             case 'c':
-                addItem(new Coin(j * blockSize, i * blockSize, "coin.png"));
+                addItem(new Coin(j, i, blockSize, "coin.png"));
                 break;
             case 'f':
-                addItem(new BackgroundItem(j * blockSize, i * blockSize, "flower.png"));
+                addItem(new BackgroundItem(j, i, blockSize,  "flower.png"));
                 break;
             case 's':
-                addItem(new BackgroundItem(j * blockSize, i * blockSize, "sign.png"));
+                addItem(new BackgroundItem(j, i, blockSize,  "sign.png"));
                 break;
             case 'S':
                 addItem(new Spiny(j * blockSize, i * blockSize, (j + 8) * blockSize, _world));

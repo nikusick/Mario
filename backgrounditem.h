@@ -13,10 +13,10 @@ class BackgroundItem: public QObject, public QGraphicsPixmapItem
 {
     Q_OBJECT;
 public:
-    BackgroundItem(qreal x, qreal y, const std::string& imgPath) {
+    BackgroundItem(qreal x, qreal y, int blockSize, const std::string& imgPath) {
         _pixmap = QPixmap(QString::fromStdString(TILES_PATH + imgPath));
         setPixmap(_pixmap);
-        setPos(x, y);
+        setPos(x * blockSize, (y + 1) * blockSize - _pixmap.height() % blockSize);
     }
 protected:
      QPixmap _pixmap;
@@ -26,7 +26,7 @@ class Coin: public BackgroundItem
 {
     Q_OBJECT;
 public:
-    Coin(qreal x, qreal y, const std::string& imgPath): BackgroundItem(x, y, imgPath) {
+    Coin(qreal x, qreal y, int blockSize, const std::string& imgPath): BackgroundItem(x, y, blockSize, imgPath) {
         timer = new QTimer;
         setPixmap(_pixmap.copy(curFrame, 0, 39, 41));
         connect(timer, SIGNAL(timeout()), this, SLOT(changePixmap()));
