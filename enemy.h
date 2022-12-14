@@ -54,14 +54,14 @@ private:
             b2Vec2 vel = _body->GetLinearVelocity();
             vel.x = -1.5;
             _body->SetLinearVelocity( vel );
-            setPixmap(_curPixmap.copy(_curFrame, 0, 45, 75));
+            setPixmap(_curPixmap.copy(_curFrame, 0, 45, 55));
         }
         else {
             b2Vec2 vel = _body->GetLinearVelocity();
             vel.x = 1.5;
             _body->SetLinearVelocity( vel );
-            setPixmap(_curPixmap.copy(_curFrame, 0, 45, 75).transformed(
-                          QTransform().scale(-1,1).translate(_curPixmap.copy(_curFrame, 0, 45, 75).width(), 0)));
+            setPixmap(_curPixmap.copy(_curFrame, 0, 45, 55).transformed(
+                          QTransform().scale(-1,1).translate(_curPixmap.copy(_curFrame, 0, 45, 55).width(), 0)));
         }
     }
 };
@@ -120,14 +120,14 @@ private:
             b2Vec2 vel = _body->GetLinearVelocity();
             vel.x = -1.5;
             _body->SetLinearVelocity( vel );
-            setPixmap(_curPixmap.copy(_curFrame, 0, 120, 93));
+            setPixmap(_curPixmap.copy(_curFrame, 0, 120, 78));
         }
         else {
             b2Vec2 vel = _body->GetLinearVelocity();
             vel.x = 1.5;
             _body->SetLinearVelocity( vel );
-            setPixmap(_curPixmap.copy(_curFrame, 0, 120, 93).transformed(
-                          QTransform().scale(-1,1).translate(_curPixmap.copy(_curFrame, 0, 120, 93).width(), 0)));
+            setPixmap(_curPixmap.copy(_curFrame, 0, 120, 78).transformed(
+                          QTransform().scale(-1,1).translate(_curPixmap.copy(_curFrame, 0, 120, 78).width(), 0)));
         }
     }
 };

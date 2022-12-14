@@ -51,7 +51,7 @@ void Enemy::setBody(qreal x, qreal y, b2World *world)
 
     b2CircleShape cShape;
     cShape.m_radius = 0.1;
-    cShape.m_p.Set((float)boundingRect().width() / 200, ((float)boundingRect().height() + 20) / 100);
+    cShape.m_p.Set((float)boundingRect().width()  * scale() / 200, ((float)boundingRect().height() * scale() - 10) / 100);
 
 
     b2FixtureDef fixtureDef;
