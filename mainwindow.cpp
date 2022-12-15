@@ -92,6 +92,14 @@ void MainWindow::keyPressEvent(QKeyEvent *event)
         if (event->key() == _controls.at("up")) _level->_mario->jump();
         if (event->key() == _controls.at("left")) _level->_mario->goLeft();
         if (event->key() == _controls.at("right")) _level->_mario->goRight();
+        if (event->key() == Qt::Key_Q) {
+            inGame = false;
+            _timer->stop();
+            _ui->stackedWidget->setCurrentWidget(_ui->menu);
+            delete _level;
+            _player->endGame();
+            releaseKeyboard();
+        }
     }
 }
 
