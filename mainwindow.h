@@ -43,6 +43,8 @@ private:
     void setWinPage();
     void setSettings();
 
+    void setLevel(int lvl);
+
 private slots:
     void moveCamera();
 
@@ -52,6 +54,7 @@ private slots:
     //Menu buttons
     void on_settings_b_clicked();
     void on_lvl_1_clicked();
+    void on_lvl_2_clicked();
 
     //Settings buttons
     void on_keyUp_keySequenceChanged(const QKeySequence &keySequence);
@@ -61,6 +64,5 @@ private slots:
     void on_to_menu_2_clicked();
     void on_to_menu_1_clicked();
     void on_checkBox_stateChanged(int arg1);
-    void on_lvl_2_clicked();
 };
 #endif // MAINWINDOW_H

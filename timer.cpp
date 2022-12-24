@@ -31,5 +31,4 @@ void Timer::decrease(){
 
 int Timer::getTime(){
     return timeCount;
-
 }

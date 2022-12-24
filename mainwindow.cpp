@@ -9,8 +9,8 @@ MainWindow::MainWindow(QWidget *parent)
     _ui->setupUi(this);
 
     setWindowTitle(tr("Super Mario"));
-    setBackgroundRole(QPalette::Dark);
-    setFixedSize(this->width(), this->height());
+    setFixedSize(width(), height());
+
     setMenu();
     setView();
     setSettings();
@@ -54,6 +54,22 @@ void MainWindow::setWinPage()
 {
     _ui->label_5->setText("Time: " + QString::number(_level->getTime()) +
                           "\nScore: " + QString::number(_level->_mario->getScore()->getScore()));
+    inGame = false;
+    _timer->stop();
+    _ui->stackedWidget->setCurrentWidget(_ui->win_page);
+    delete _level;
+    _player->endGame();
+    releaseKeyboard();
+}
+
+void MainWindow::setLosePage()
+{
+    inGame = false;
+    _timer->stop();
+    _ui->stackedWidget->setCurrentWidget(_ui->lose_page);
+    delete _level;
+    _player->endGame();
+    releaseKeyboard();
 }
 
 void MainWindow::setSettings()
@@ -63,26 +79,31 @@ void MainWindow::setSettings()
     _ui->keyRight->setKeySequence(_controls.at("right"));
 }
 
+void MainWindow::setLevel(int lvl)
+{
+    _ui->stackedWidget->setCurrentWidget(_ui->game);
+
+    grabKeyboard();
+    inGame = true;
+
+    _player->startGame();
+    _level = new Level(_ui->graphicsView->height(), lvl, _world, _player);
+    _ui->graphicsView->setScene(_level);
+    _ui->graphicsView->centerOn(_level->_mario);
+    _timer->start();
+}
+
 void MainWindow::moveCamera()
 {
     _ui->graphicsView->centerOn(_level->_mario);
     _level->moveMenu(_ui->graphicsView->mapToScene(0, 0));
     if (_ui->graphicsView->mapFromScene(_level->_mario->pos()).x() >= _ui->graphicsView->width() - 25) {
-        inGame = false;
-        _timer->stop();
         setWinPage();
-        _ui->stackedWidget->setCurrentWidget(_ui->win_page);
-        delete _level;
-        _player->endGame();
-        releaseKeyboard();
     }
-    else if (_level->getTime() == 0 || _level->_mario->getHealth()->getHealth() == 0 || _level->_mario->pos().y() >= _ui->graphicsView->height()) {
-        inGame = false;
-        _timer->stop();
-        _ui->stackedWidget->setCurrentWidget(_ui->lose_page);
-        delete _level;
-        _player->endGame();
-        releaseKeyboard();
+    else if (_level->getTime() == 0
+             || _level->_mario->getHealth()->getHealth() == 0
+             || _level->_mario->pos().y() >= _ui->graphicsView->height()) {
+        setLosePage();
     }
 }
 
@@ -112,18 +133,13 @@ void MainWindow::keyReleaseEvent(QKeyEvent *event)
 
 void MainWindow::on_lvl_1_clicked()
 {
-    _ui->stackedWidget->setCurrentWidget(_ui->game);
-
-    grabKeyboard();
-    inGame = true;
-
-    _player->startGame();
-    _level = new Level(_ui->graphicsView->height(), 1, _world, _player);
-    _ui->graphicsView->setScene(_level);
-    _ui->graphicsView->centerOn(_level->_mario);
-    _timer->start();
+    setLevel(1);
 }
 
+void MainWindow::on_lvl_2_clicked()
+{
+    setLevel(2);
+}
 
 void MainWindow::on_keyUp_keySequenceChanged(const QKeySequence &keySequence)
 {
@@ -171,19 +187,3 @@ void MainWindow::on_checkBox_stateChanged(int arg1)
 {
     _player->setMute(!arg1);
 }
-
-
-void MainWindow::on_lvl_2_clicked()
-{
-    _ui->stackedWidget->setCurrentWidget(_ui->game);
-
-    grabKeyboard();
-    inGame = true;
-
-    _player->startGame();
-    _level = new Level(_ui->graphicsView->height(), 2, _world, _player);
-    _ui->graphicsView->setScene(_level);
-    _ui->graphicsView->centerOn(_level->_mario);
-    _timer->start();
-}
-
