@@ -7,13 +7,12 @@
 
 #include <Box2D/box2d.h>
 
-#include <block.h>
 #include <QFile>
 #include <QTimer>
 
 #include "timer.h"
 #include "enemy.h"
-#include "backgrounditem.h"
+#include "gameobject.h"
 #include "mediaplayer.h"
 
 #define MARIO_HEIGHT 100

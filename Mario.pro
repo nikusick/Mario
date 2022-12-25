@@ -54,7 +54,6 @@ SOURCES += \
     Box2D/src/dynamics/b2_world.cpp \
     Box2D/src/dynamics/b2_world_callbacks.cpp \
     Box2D/src/rope/b2_rope.cpp \
-    enemy.cpp \
     level.cpp \
     main.cpp \
     mainwindow.cpp \
@@ -151,10 +150,9 @@ HEADERS += \
     Box2D/src/dynamics/b2_island.h \
     Box2D/src/dynamics/b2_polygon_circle_contact.h \
     Box2D/src/dynamics/b2_polygon_contact.h \
-    backgrounditem.h \
-    block.h \
     box2d/box2d.h \
     enemy.h \
+    gameobject.h \
     health.h \
     level.h \
     mainwindow.h \
