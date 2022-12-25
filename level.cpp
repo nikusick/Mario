@@ -51,48 +51,48 @@ void Level::setMap(int height)
         for (int j = 0; j < w_block_count; ++j) {
             switch(line[j]) {
             case '1':
-                addItem(new Block(j * blockSize, i * blockSize, "winter_ground.png", _world));
+                addItem(new Block(j * blockSize, i * blockSize, ":tiles/img/winter_ground.png", _world));
                 break;
             case '2':
-                addItem(new Block(j * blockSize, i * blockSize, "brick.png", _world));
+                addItem(new Block(j * blockSize, i * blockSize, ":tiles/img/brick.png", _world));
                 break;
             case '3':
             {
-                addItem(new BackgroundItem(j, i, blockSize, "castle.png"));
-                auto item = new BackgroundItem(j + (float)157 / blockSize, i, blockSize, "hcastle.png");
+                addItem(new BackgroundItem(j, i, blockSize, ":/tiles/img/castle.png"));
+                auto item = new BackgroundItem(j + (float)157 / blockSize, i, blockSize, ":/tiles/img/hcastle.png");
                 item->setZValue(2000);
                 addItem(item);
                 break;
             }
             case '5':
-                addItem(new Block(j * blockSize, i * blockSize, "winter_ball.png", _world));
+                addItem(new Block(j * blockSize, i * blockSize, ":tiles/img/winter_ball.png", _world));
                 break;
             case '6':
-                addItem(new Block(j * blockSize, i * blockSize, "winter_ground_1.png", _world));
+                addItem(new Block(j * blockSize, i * blockSize, ":tiles/img/winter_ground_1.png", _world));
                 break;
             case 'c':
-                addItem(new Coin(j, i, blockSize, "coin.png"));
+                addItem(new Coin(j * blockSize, i * blockSize));
                 break;
             case 'f':
-                addItem(new BackgroundItem(j, i, blockSize,  "flower.png"));
+                addItem(new BackgroundItem(j, i, blockSize,  ":/tiles/img/flower.png"));
                 break;
             case 's':
-                addItem(new BackgroundItem(j, i, blockSize,  "sign.png"));
+                addItem(new BackgroundItem(j, i, blockSize,  ":/tiles/img/sign.png"));
                 break;
             case 'S':
                 addItem(new Spiny(j * blockSize, i * blockSize, (j + 8) * blockSize, _world));
                 break;
             case '4':
-                addItem(new Block(j * blockSize, i * blockSize, "stairblock.png", _world));
+                addItem(new Block(j * blockSize, i * blockSize, ":tiles/img/stairblock.png", _world));
                 break;
             case '7':
-                addItem(new Block(j * blockSize, i * blockSize, "wallf2.png", _world));
+                addItem(new Block(j * blockSize, i * blockSize, ":tiles/img/wallf2.png", _world));
                 break;
             case '8':
-                addItem(new Block(j * blockSize, i * blockSize, "walli.png", _world));
+                addItem(new Block(j * blockSize, i * blockSize, ":tiles/img/walli.png", _world));
                 break;
             case '9':
-                addItem(new Block(j * blockSize, i * blockSize, "ground.png", _world));
+                addItem(new Block(j * blockSize, i * blockSize, ":tiles/img/ground.png", _world));
                 break;
             case 'm':
                 _mario = new Mario(j * blockSize, i * blockSize, MARIO_HEIGHT, _world, _player);
@@ -111,7 +111,7 @@ void Level::setMap(int height)
                 addItem(new Piranha(j * blockSize, i * blockSize, 0, _world));
                 break;
             case 'w':
-                addItem(new Block(j * blockSize, i * blockSize, "warp.png", _world));
+                addItem(new Block(j * blockSize, i * blockSize, ":tiles/img/warp.png", _world));
                 break;
             }
         }

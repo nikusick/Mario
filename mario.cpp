@@ -1,7 +1,6 @@
 #include "mario.h"
 #include "enemy.h"
-#include "backgrounditem.h"
-#include "block.h"
+#include "gameobject.h"
 #include <QTimer>
 
 float fromB2(float value) {
@@ -44,7 +43,7 @@ Mario::Mario(qreal x, qreal y, int height, b2World *world, MediaPlayer* player):
     b2FixtureDef fixtureDef;
     fixtureDef.shape = &cShape;
     fixtureDef.density = 1.0f;
-    fixtureDef.friction = 10;
+
     _body->CreateFixture(&fixtureDef);
     _body->CreateFixture(&shape, 1.0f);
 
